@@ -9,6 +9,6 @@ int main() {
     Driver d;
     d.setType("optimal");
     d.setOutput("output.txt");
-    d.readFile("inputFile01");
+    d.readFile("inputFile03");
     return 0;
 }

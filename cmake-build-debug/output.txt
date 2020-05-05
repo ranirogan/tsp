@@ -1,0 +1,3 @@
+Ideal path for inputFile03 using optimized implementation:
+Cost: 51
+	{0 - 1 - 2 - 12 - 4 - 3 - 18 - 19 - 15 - 14 - 9 - 5 - 13 - 6 - 10 - 17 - 11 - 16 - 8 - 7 - 0}

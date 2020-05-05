@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/TSP.dir/main.cpp.o CMakeFiles/TSP.dir/Driver.cpp.o  -o TSP.exe -Wl,--out-implib,libTSP.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
