@@ -44,7 +44,7 @@ vector<T> NN<T>::getPath() {
     bool isDone = false;
     T cur = this->nodes.begin()->first;
     // the path changes according to the starting node
-//    T cur = this->nodes.find("6")->first;
+//    T cur = this->nodes.find("15")->first;
     T start = cur;
     path.push_back(cur);
     isDone = !eraseInVec(cur, toLookAt);

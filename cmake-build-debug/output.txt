@@ -1,10 +1,8 @@
-Ideal path for inputFile04 using NN implementation:
-Cost: 401
-	{29 - 15 - 2 - 8 - 7 - 18 - 1 - 0 - 11 - 28 - 24
-	24 - 5 - 21 - 17 - 20 - 16 - 12 - 4 - 26 - 3 - 13
-	13 - 22 - 14 - 23 - 10 - 19 - 27 - 25 - 6 - 9 - 29}
-Ideal path for inputFile04 using Christofides implementation:
-Cost: 544
-	{6 - 19 - 10 - 23 - 14 - 22 - 16 - 29 - 15 - 2 - 8
-	8 - 7 - 18 - 27 - 4 - 1 - 24 - 12 - 5 - 26 - 3
-	3 - 13 - 9 - 20 - 17 - 21 - 28 - 11 - 0 - 25 - 6}
+Ideal path for inputFile03 using NN implementation:
+Cost: 84
+	{18 - 0 - 10 - 19 - 15 - 1 - 2 - 3 - 4 - 5 - 6
+	6 - 7 - 8 - 9 - 11 - 17 - 12 - 16 - 13 - 14 - 18}
+Ideal path for inputFile03 using Christofides implementation:
+Cost: 71
+	{8 - 1 - 0 - 6 - 4 - 7 - 3 - 5 - 14 - 16 - 11
+	11 - 17 - 13 - 12 - 15 - 19 - 10 - 18 - 9 - 2 - 8}

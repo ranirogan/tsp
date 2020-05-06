@@ -9,8 +9,8 @@ int main() {
     Driver d;
     d.setOutput("output.txt");
     d.setType("trivial");
-    d.readFile("inputFile04");
+    d.readFile("inputFile03");
     d.setType("optimal");
-    d.readFile("inputFile04");
+    d.readFile("inputFile03");
     return 0;
 }
