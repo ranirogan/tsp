@@ -51,7 +51,7 @@ protected:
     bool check(vector<edge<T>> temp, vector<edge<T>> toIgnore);
     vector<vector<T>> makeCommunities(vector<edge<T>> toIgnore);
     vector<weightEdge<T>> weights;
-    void printTree();
+    void printGraph();
 public:
     Graph()= default;
     void addNode(T val);
@@ -96,7 +96,7 @@ void Graph<T>::addNode(T val){
         nd.visited = false;
         nodes.insert(pair<T, Node>(val, nd));
     } else
-        ;
+        ; //don't re-add
 }
 
 /**
@@ -689,6 +689,11 @@ void Graph<T>::addEdge(T from, T to, int weight) {
     weights.push_back(wEd);
 }
 
+/**
+ * Gets the minimum spanning tree for a graph based off of Kruskal's algorithm
+ * @tparam T is the type of the graph
+ * @return a vector of weighted edges that are used in the spanning tree
+ */
 template <typename T>
 vector<weightEdge<T>> Graph<T>::getMinSpan() {
     vector<weightEdge<T>> vec;
@@ -712,17 +717,28 @@ vector<weightEdge<T>> Graph<T>::getMinSpan() {
     return vec;
 }
 
+/**
+ * prints out each node and their connections in the graph
+ * @tparam T is the type of the graph
+ */
 template <typename T>
-void Graph<T>::printTree() {
+void Graph<T>::printGraph() {
     for(auto iter = nodes.begin(); iter != nodes.end(); iter++){
         Node nd = iter->second;
-        cout << nd.obj << ": ";
+        cout << nd.obj << ":" << endl;
         for(int i = 0; i < nd.edges.size(); i++){
             cout << "\t" << nd.edges[i] << endl;
         }
     }
 }
 
+/**
+ * Given a vector of T objects representing a path, finds the corresponding weighted edges
+ * and calculates the cost of the path
+ * @tparam T is the type of the graph
+ * @param vec is a vector representing a path
+ * @return an integer that is the cost of the path
+ */
 template <typename T>
 int Graph<T>::calcWeights(vector<T> vec) {
     int sum = 0;
@@ -732,7 +748,7 @@ int Graph<T>::calcWeights(vector<T> vec) {
         weightEdge<T> wE;
         for(int j = 0; j < weights.size(); j++){
             wE = weights[j];
-            if(wE.to == cur || wE.to == next){
+            if(wE.to == cur || wE.to == next){ //undirected
                 if(wE.from == cur || wE.from == next){
                     break;
                 }

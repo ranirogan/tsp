@@ -4,8 +4,9 @@ project(TSP)
 set (input01 "inputFile01")
 set (input02 "inputFile02")
 set (input03 "inputFile03")
+set (input04 "inputFile04")
 
-foreach(file IN LISTS input01 input02 input03)
+foreach(file IN LISTS input01 input02 input03 input04)
     configure_file(${file} ${file} COPYONLY)
 endforeach()
 

@@ -7,8 +7,10 @@ using namespace std;
 int main() {
     Graph<string>* test = new NN<string>();
     Driver d;
-    d.setType("optimal");
     d.setOutput("output.txt");
-    d.readFile("inputFile03");
+    d.setType("trivial");
+    d.readFile("inputFile04");
+    d.setType("optimal");
+    d.readFile("inputFile04");
     return 0;
 }

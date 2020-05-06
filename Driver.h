@@ -1,5 +1,5 @@
 /**
- * Reads in files and creates set & creates output
+ * Reads in files and calls the find path method in graph and outputs the path to a file
  */
 
 #ifndef INC_20S_PA03_RANIROGAN_DRIVER_H

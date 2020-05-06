@@ -1,5 +1,5 @@
 /**
- * Reads files and creates output from set commands
+ * Reads in files and calls the find path method in graph and outputs the path to a file
  */
 
 #include "Driver.h"
@@ -34,7 +34,7 @@ void Driver::setOutput(const string& fileName) {
 }
 
 /**
- * Reads in a set input file and creates a set
+ * Reads in a set input file and finds the path
  * @param fileName
  */
 void Driver::readFile(const string& fileName) {
@@ -46,7 +46,6 @@ void Driver::readFile(const string& fileName) {
         cout << "Set type first" << endl;
         return;
     }
-    delete gr;
     if(type == trivial)
         gr = new NN<string>();
     else
@@ -56,6 +55,7 @@ void Driver::readFile(const string& fileName) {
         cout << "Error in input file" << endl;
         return;
     }
+    // reads in the graph
     string line;
     getline(inputFile, line);
     int numNodes = parseInt(line);  // num nodes
@@ -84,16 +84,18 @@ void Driver::readFile(const string& fileName) {
         if(inputFile.eof())
             break;
     }
+    // gets the path
     vector<string> vec = gr->getPath();
     *out << "Ideal path for " << fileName <<  " using ";
     if(type == trivial) {
-        *out << "trivial";
+        *out << "NN";
     }
     else {
-        *out << "optimized";
+        *out << "Christofides";
     }
     *out << " implementation:" << endl;
     *out << "Cost: " << gr->calcWeights(vec) << endl;
+    // prints the path
     printVec(vec);
     out->flush();
     inputFile.close();
@@ -126,13 +128,20 @@ string Driver::trim(string str) {
         return str;
 }
 
+/**
+ * prints out the vector representing the path
+ * @param vec is the path
+ */
 void Driver::printVec(vector<string> vec) {
     *out << "\t{";
     for(int i = 0; i < vec.size(); i++){
         *out << vec[i] ;
+        if(i % 10 == 0 && i > 0 && i < vec.size() - 1)
+            *out << endl << "\t" << vec[i];
         if(i < vec.size() - 1)
             *out << " - ";
         else
             *out << "}";
     }
+    *out << endl;
 }
